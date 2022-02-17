@@ -1,0 +1,217 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-blue: #4d68c2;
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --primary: #084c61;
+  --gray-1: #fafaf9;
+  --gray-2: #e7e5e4;
+  --gray-3: #292524;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas: "sidebar header" "sidebar content";
+  height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  appearance: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* HEADER */
+header {
+  grid-area: header;
+  padding: 1.5rem 3rem;
+  background-color: var(--gray-1);
+  box-shadow: var(--shadow-lg);
+  color: var(--gray-3);
+}
+
+/* HEADER TOP*/
+.top {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  margin-bottom: 2.5rem;
+}
+
+/* HEADER TOP SEARCH */
+.search {
+  display: flex;
+  align-items: center;
+  margin-right: auto;
+  width: 100%;
+}
+
+.search > label > span {
+  font-size: 1.9rem;
+}
+
+.search input {
+  border: none;
+  border-radius: 15px;
+  background-color: var(--gray-2);
+  width: min(70%, 650px);
+  outline-color: var(--primary);
+  padding: 0.75rem 1.5rem;
+  margin-left: 1.25rem;
+}
+
+/* HEADER TOP ACCOUNT */
+.account {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.accountPicture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--main-blue);
+  margin: 0 1.2rem 0 2rem;
+}
+
+/* HEADER BOTTOM */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* HEADER BOTTOM PROFILE */
+.profile {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.profilePicture {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--main-blue);
+  margin-right: 1.2rem;  
+}
+
+.profileName .greeting {
+  margin-bottom: 0.4rem;
+}
+
+.profileName .name {
+  font-size: 1.8rem;
+}
+
+/* HEADER PROFILE BUTTONS */
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.8rem;
+}
+
+.buttons .btn {
+  background-color: var(--primary);
+  color: var(--gray-1);
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0.75em 2.3em;
+  border-radius: 99em;
+}
+
+/* ASIDE */
+.sidebar {
+  background-color: var(--primary);
+  color: var(--gray-1);
+  grid-area: sidebar;
+  padding: 1.8rem;
+}
+
+.sidebarTitle {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+}
+
+.sidebarTitle span {
+  font-size: 2.2rem;
+  margin-right: 1rem;
+}
+
+/* ASIDE NAV */
+.nav {
+  display: grid;
+  margin-top: 3.2rem;
+  gap: 1rem;
+  font-size: 1.4rem;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+
+/* MAIN CONTENT */
+.content {
+  background-color: var(--gray-1);
+  grid-area: content;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: min-content 1fr;
+  gap: 2rem;
+  grid-template-areas: "projects announcements" "projects trending";
+  overflow: auto;
+}
+
+.projects {
+  grid-area: projects;
+}
+
+.projects > h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.projectsContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-auto-rows: 250px;
+  gap: 2rem;
+  padding-bottom: 2rem;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  border-left: 10px solid #2799b6;
+  border-radius: 10px;
+  padding: 2.2rem;
+}
+
+.projectTitle {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
