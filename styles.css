@@ -13,6 +13,7 @@
   --gray-2: #e7e5e4;
   --gray-3: #292524;
   --gray-m: #78716c;
+  --accent: #fa3a6d;
 }
 
 body {
@@ -285,4 +286,52 @@ header {
 /* TRENDING */
 .trending {
   grid-area: trending;
+}
+
+.trending .card {
+  padding: 1.5rem;
+}
+
+.trend {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  margin: 20px 0;
+}
+.trend:first-child {
+  margin-top: 0;
+}
+.trend:last-child {
+  margin-bottom: 0;
+}
+
+.trend .picture {
+  background-color: var(--accent);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+}
+
+.trend .account {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+
+.trend .username {
+  font-weight: 500;
+  margin-bottom: 0.15rem;
+}
+
+#trend1 .picture {
+  background-color: var(--accent);
+}
+#trend2 .picture {
+  background-color: #5bb90e;
+}
+#trend3 .picture {
+  background-color: #0e4ab9;
 }
