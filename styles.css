@@ -7,10 +7,12 @@
 :root {
   --main-blue: #4d68c2;
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
   --primary: #084c61;
   --gray-1: #fafaf9;
   --gray-2: #e7e5e4;
   --gray-3: #292524;
+  --gray-m: #78716c;
 }
 
 body {
@@ -45,6 +47,7 @@ header {
   background-color: var(--gray-1);
   box-shadow: var(--shadow-lg);
   color: var(--gray-3);
+  z-index: 2;
 }
 
 /* HEADER TOP*/
@@ -175,27 +178,40 @@ header {
 
 /* MAIN CONTENT */
 .content {
-  background-color: var(--gray-1);
+  background-color: var(--gray-2);
   grid-area: content;
   padding: 2rem;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: min-content 1fr;
   gap: 2rem;
-  grid-template-areas: "projects announcements" "projects trending";
+  grid-template-areas: 
+    "projects announcements" 
+    "projects trending";
   overflow: auto;
+}
+
+.content h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.card {
+  background-color: var(--gray-1);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+}
+
+.cardText {
+  color: var(--gray-m);
 }
 
 .projects {
   grid-area: projects;
 }
 
-.projects > h2 {
-  font-size: 1.6rem;
-  margin-bottom: 1.6rem;
-}
-
-.projectsContainer {
+.projects .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-auto-rows: 250px;
@@ -203,15 +219,70 @@ header {
   padding-bottom: 2rem;
 }
 
-.project {
+.projects .card {
   display: flex;
   flex-direction: column;
   border-left: 10px solid #2799b6;
   border-radius: 10px;
-  padding: 2.2rem;
 }
 
-.projectTitle {
+.projects .cardTitle {
   font-size: 1.4rem;
   margin-bottom: 0.5rem;
+}
+
+.projects .projectsText {
+  overflow: hidden;
+}
+
+.actions {
+  margin-top: auto;
+  align-self: flex-end;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.actions span {
+  font-size: 1.75rem;
+  cursor: pointer;
+}
+
+/* ANNOUNCEMENTS */
+.announcements {
+  grid-area: announcements;
+}
+
+.announcement {
+  width: 25ch;
+  padding: 1rem;
+}
+.announcement:first-child {
+  padding-top: 0;
+}
+.announcement:last-child {
+  padding-bottom: 0;
+}
+
+.announcement {
+  border-top: 1px solid var(--gray-m);
+}
+.announcement:first-child {
+  border: none;
+}
+
+.announcement h5 {
+  font-size: 0.9rem;
+  margin-bottom: 0.25em;
+}
+
+.announcement p {
+  font-size: 0.8rem;
+  overflow: hidden;
+}
+
+/* TRENDING */
+.trending {
+  grid-area: trending;
 }
